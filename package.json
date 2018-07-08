@@ -1,0 +1,19 @@
+{
+  "name": "nodeexpressjs",
+  "version": "1.0.0",
+  "description": "Node com ExpressJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "expressjs"
+  ],
+  "author": "Raniery Pontes",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
+}
