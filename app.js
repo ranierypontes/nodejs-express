@@ -5,6 +5,8 @@ var app = express();
 var routes = require("./routes");
 var bodyParser = require("body-parser");
 
+app.set("view engine", "pug");
+
 app.use(function(req, res, next) {
     req.name = "Raninho";
     console.log("I am a custom middleware!");
@@ -18,8 +20,13 @@ app.use(bodyParser.urlencoded({
 // app.get("/", function(req, res) {
 //     res.send("Hello from ExpressJS " + req.name + "!");
 // });
-app.get("/", function(req, res, next) {
-    next(new Error("Custom error"));
+// app.get("/", function(req, res, next) {
+//     next(new Error("Custom error"));
+// });
+app.get("/", function(req, res) {
+    res.render("index", {
+        message: "Hello world from template engine..."
+    });
 });
 app.use("/hello", routes);
 app.use("/public", express.static(path.join(__dirname, "public")));
@@ -36,5 +43,5 @@ app.use(function(err, req, res, next) {
 // });
 
 http.createServer(app).listen(3000, function() {
-    console.log("Express started!");    
+    console.log("Express started on: localhost:3000.");    
 });
